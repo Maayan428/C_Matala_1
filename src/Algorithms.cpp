@@ -14,6 +14,8 @@
 #include "PriorityQueue.hpp"
 #include "Edge.hpp"
 #include "UnionFind.hpp"
+#include <iostream>
+
 
 namespace graph {
 
@@ -38,11 +40,17 @@ namespace graph {
         while (!q.isEmpty()) {
             int u = q.dequeue();
 
+            std::cout << "Visiting node: " << u << std::endl;
+
+
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
 
             for (int i = 0; i < size; ++i) {
+
+                std::cout << "  Checking neighbor: " << all[i].id << " with weight " << all[i].weight << std::endl;
+
                 int v = all[i].id;
                 int w = all[i].weight;
                 if (!visited[v]) {

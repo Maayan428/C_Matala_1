@@ -29,7 +29,11 @@ namespace graph {
         int getWeight(int id) const;
         void print() const;
 
-        const Neighbor* getAll() const { return neighbors; }
+        const Neighbor* getAll() const {
+            if (size == 0 || neighbors == nullptr) return nullptr;
+            return neighbors;
+        }
+
         int getSize() const { return size; }
     };
 

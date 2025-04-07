@@ -12,6 +12,10 @@ namespace graph {
             throw std::invalid_argument("Number of vertices must be positive.");
         }
         adjacency = new NeighborList[vertices];
+        for (int i = 0; i < vertices; ++i) {
+            adjacency[i] = NeighborList();
+        }
+
     }
 
     Graph::~Graph() {

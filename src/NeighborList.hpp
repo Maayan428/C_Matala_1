@@ -35,6 +35,10 @@ namespace graph {
         }
 
         int getSize() const { return size; }
+
+        NeighborList(const NeighborList&) = delete;
+        NeighborList& operator=(const NeighborList&) = delete;
+
     };
 
 } // namespace graph

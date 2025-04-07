@@ -1,49 +1,32 @@
+
+//maayan428@gmail.com
+
 #ifndef GRAPH_HPP
 #define GRAPH_HPP
 
-#include <iostream>
-#include <stdexcept>
+#include "NeighborList.hpp"
+#include "Edge.hpp"
 
 namespace graph {
 
-    // Represents an edge in the adjacency list
-    struct Neighbor {
-        int vertex; // Destination vertex
-        int weight; // Weight of the edge
-    };
-
-    // Dynamic list of neighbors (manual dynamic array management)
-    class NeighborList {
-    private:
-        Neighbor* neighbors;
-        int size;
-        int capacity;
-
-        void resize(); // Expands the array when full
-
-    public:
-        NeighborList();
-        ~NeighborList();
-        
-        void add(int vertex, int weight);
-        bool remove(int vertex);
-        void print() const;
-        bool contains(int vertex) const;
-    };
-
-    // Graph class
     class Graph {
     private:
         int numVertices;
-        NeighborList* adjacencyList;
+        NeighborList* adjacency;
 
     public:
         Graph(int vertices);
         ~Graph();
 
-        void addEdge(int src, int dest, int weight = 1);
-        void removeEdge(int src, int dest);
+        void addEdge(int from, int to, int weight = 1);
+        void removeEdge(int from, int to);
+        bool hasEdge(int from, int to) const;
+        int getEdgeWeight(int from, int to) const;
+
         void print_graph() const;
+
+        int getNumVertices() const { return numVertices; }
+        const NeighborList& getNeighbors(int vertex) const;
     };
 
 } // namespace graph

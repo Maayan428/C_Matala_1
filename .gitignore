@@ -1,0 +1,8 @@
+*.o
+*.out
+/bin/
+/build/
+/test/
+Main
+Test
+.DS_Store

@@ -46,6 +46,7 @@ namespace graph {
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
+            if (all == nullptr) continue;
 
             for (int i = 0; i < size; ++i) {
 
@@ -87,6 +88,7 @@ namespace graph {
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
+            if (all == nullptr) continue;
 
             for (int i = 0; i < size; ++i) {
                 int v = all[i].id;
@@ -133,6 +135,7 @@ namespace graph {
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
+            if (all == nullptr) continue;
 
             for (int i = 0; i < size; ++i) {
                 int v = all[i].id;
@@ -194,6 +197,7 @@ namespace graph {
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
+            if (all == nullptr) continue;
 
             for (int i = 0; i < size; ++i) {
                 int v = all[i].id;
@@ -240,6 +244,7 @@ namespace graph {
             const NeighborList& neighbors = graph.getNeighbors(u);
             const Neighbor* all = neighbors.getAll();
             int size = neighbors.getSize();
+            if (all == nullptr) continue;
 
             for (int i = 0; i < size; ++i) {
                 int v = all[i].id;

@@ -55,8 +55,15 @@ namespace graph {
 
     void Graph::print_graph() const {
         for (int i = 0; i < numVertices; ++i) {
-            std::cout << "Vertex " << i << ":";
-            adjacency[i].print();
+            std::cout << "Vertex " << i << ": ";
+            const NeighborList& list = adjacency[i];
+            const Neighbor* neighbors = list.getAll();
+            int size = list.getSize();
+            if (neighbors == nullptr) continue;
+
+            for (int j = 0; j < size; ++j) {
+                std::cout << "-> (" << i << ", " << neighbors[j].id << ", " << neighbors[j].weight << ") ";
+            }
             std::cout << std::endl;
         }
     }

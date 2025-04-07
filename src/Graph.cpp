@@ -28,6 +28,9 @@ namespace graph {
     }
 
     void Graph::removeEdge(int from, int to) {
+        if (from < 0 || from >= numVertices || to < 0 || to >= numVertices) {
+            throw std::out_of_range("Invalid vertex index.");
+        }
         bool removed1 = adjacency[from].remove(to);
         bool removed2 = adjacency[to].remove(from);
 
@@ -37,10 +40,16 @@ namespace graph {
     }
 
     bool Graph::hasEdge(int from, int to) const {
+        if (from < 0 || from >= numVertices || to < 0 || to >= numVertices) {
+            return false;
+        }
         return adjacency[from].contains(to);
     }
 
     int Graph::getEdgeWeight(int from, int to) const {
+        if (from < 0 || from >= numVertices || to < 0 || to >= numVertices) {
+            throw std::out_of_range("Invalid vertex index.");
+        }
         return adjacency[from].getWeight(to);
     }
 

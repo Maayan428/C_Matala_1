@@ -27,7 +27,7 @@ namespace graph {
      */
     Graph Algorithms::bfs(const Graph& graph, int start) {
         int n = graph.getNumVertices();
-        if (start < 0 || start >= n) return Graph(n);
+        if (start < 0 || start >= n) std::__throw_invalid_argument("Invalid Graph with 0 vertexes");
 
         Graph tree(n);
         bool* visited = new bool[n];
@@ -72,7 +72,7 @@ namespace graph {
      */
     Graph Algorithms::dfs(const Graph& graph, int start) {
         int n = graph.getNumVertices();
-        if (start < 0 || start >= n) return Graph(n);
+        if (start < 0 || start >= n) std::__throw_invalid_argument("Invalid Graph with 0 vertexes");
 
         Graph tree(n);
         bool* visited = new bool[n];
@@ -111,7 +111,7 @@ namespace graph {
      */
     Graph Algorithms::dijkstra(const Graph& graph, int start) {
         int n = graph.getNumVertices();
-        if (start < 0 || start >= n) return Graph(n);
+        if (start < 0 || start >= n) std::__throw_invalid_argument("Invalid Graph with 0 vertexes");
 
         int* dist = new int[n];
         int* parent = new int[n];
@@ -174,7 +174,7 @@ namespace graph {
      */
     Graph Algorithms::prim(const Graph& graph) {
         int n = graph.getNumVertices();
-        if (n == 0) std::__throw_invalid_argument("Invalid Graph 0 vertix");
+        if (n == 0) std::__throw_invalid_argument("Invalid Graph with 0 vertexes");
 
         int* key = new int[n];
         int* parent = new int[n];
@@ -236,6 +236,7 @@ namespace graph {
      */
     Graph Algorithms::kruskal(const Graph& graph) {
         int n = graph.getNumVertices();
+        if (n == 0) std::__throw_invalid_argument("Invalid Graph with 0 vertexes");
         Edge* edges = new Edge[n * n];
         int edgeCount = 0;
 

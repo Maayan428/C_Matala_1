@@ -174,7 +174,7 @@ namespace graph {
      */
     Graph Algorithms::prim(const Graph& graph) {
         int n = graph.getNumVertices();
-        if (n == 0) return Graph(0);
+        if (n == 0) std::__throw_invalid_argument("Invalid Graph 0 vertix");
 
         int* key = new int[n];
         int* parent = new int[n];
